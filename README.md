@@ -9,8 +9,8 @@ Predict the time (in seconds) that a car takes to pass testing for each variable
 * Training set size: 4209
 * Testing set size: 4209
 * Number of features: 387
-...* Categorical: 9
-...* Binary: 378
+... Categorical: 9..
+... Binary: 378..
 
 ### Evaluation metric
 Coefficient of determination (R-squared)
