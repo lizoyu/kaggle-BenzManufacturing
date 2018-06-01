@@ -26,12 +26,10 @@ d = {}
 while True:
 	# sample hyperparameters
 	'''
-	max_depth = np.random.randint(2, 5) # sample from [2,4](int) (refined)
-	#max_depth = np.random.randint(2, 7) # sample from [2,6](int)
-	learning_rate = np.random.uniform(0, 1) # sample from [0,1](float)
+	max_depth = np.random.randint(2, 7) # sample from [2,6](int)
+	learning_rate = np.random.uniform(0, 1) # sample from [0,1]
 	n_estimators = np.random.randint(100, 1000) # sample from[100,1000](int)
-	booster = np.random.choice(['gbtree','dart']) # choose from two boosters (refined)
-	#booster = np.random.choice(['gbtree','gblinear','dart']) # choose from three boosters
+	booster = np.random.choice(['gbtree','gblinear','dart']) # choose from three boosters
 	gamma = np.random.uniform(0, 1) # sample from [0,1](float)
 	min_child_weight = np.random.randint(1, 5) # sample from [1,4](int)
 	subsample = np.random.uniform(0.5, 1) # sample from [0.5,1](float)
@@ -66,6 +64,7 @@ while True:
 						   subsample=subsample, colsample_bytree=colsample_bytree, colsample_bylevel=colsample_bylevel,
 						   reg_alpha=reg_alpha, reg_lambda=reg_lambda)
 	scores = cross_val_score(clf, X_train, y, cv=30, n_jobs=-1, scoring='r2')
+	#if np.mean(scores) > best_score:
 	if np.mean(scores) > 0.58:
 		print('best scores:', np.mean(scores), clf)
 		best_score = np.mean(scores)
